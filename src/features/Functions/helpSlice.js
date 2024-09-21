@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   id: null,
-  allUsers: [],
+  allUsers: [{}],
   allMessages:[],
   status: "idle",
   remoteStream:null,

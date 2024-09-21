@@ -20,7 +20,7 @@ const Socket = () => {
       }
     });
     socket.on("get-online-users",(allUsers)=>{
-      console.log(allUsers)
+      console.log(allUsers,"idr")
         dispatch(setAllUsers(allUsers))
     })
   }, [socket]);

@@ -22,7 +22,7 @@ const Video = () => {
   const onlineUsers = useSelector(selectAllUsers);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  console.log(onlineUsers,"check")
   const newVideo = useCallback(() => {
     peer.initializePeer();
     socket.emit("pairing-user-video", userId, (error) => {
@@ -89,10 +89,15 @@ const Video = () => {
   }, [rs, peer.peer]);
 
   useEffect(() => {
-    if (userId && onlineUsers.find((user) => user.id === userId)) {
-      newVideo();
-    } else {
-      navigate("/");
+    console.log("upr")
+    if(onlineUsers.length>0){
+      console.log("yaha poch")
+      if (userId && onlineUsers.find((user) => user.id === userId)) {
+        console.log("andar aya")
+        newVideo();
+      } else {
+        navigate("/");
+      }
     }
   }, []);
 

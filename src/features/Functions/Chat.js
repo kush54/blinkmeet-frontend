@@ -40,20 +40,25 @@ const Chat = () => {
   };
 
   useEffect(() => {
+    console.log(onlineUsers)
+   if(onlineUsers.length>0){
     if (reciever !== undefined && !onlineUsers.find((user) => user.sid === reciever)) {
       dispatch(setAllMessages({ type: "end" }));
       dispatch(setReceiver(null));
     }
+   }
   }, [onlineUsers, reciever, dispatch]);
 
   useEffect(() => {
     console.log("upr",userId,onlineUsers)
+   if(onlineUsers.length>0){
     if (userId && onlineUsers.find((user) => user.id === userId)) {
       console.log("chla")
       newChat();
     } else {
       navigate("/");
     }
+   }
   }, []);
 
   const handleClick = () => {
